@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block title %} Playlist {% endblock %}
+{% block body %}
+
+<style>
+    /* Add a style block for custom styles */
+    body {
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+    }
+
+    #background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/static/background_food.png');
+        background-size: auto;
+        background-repeat: repeat;
+        opacity: 0.2; /* Adjust the opacity value as needed */
+        z-index: -1; /* Send it to the back */
+    }
+
+    .container-fluid {
+        z-index: 1; /* Bring navbar to the front */
+    }
+</style>
+
+<div>
+    <h1> {{ playlist['name'] }} </h1>
+    <img src="{{ playlist['images']['url'] }}">
+    <h2> {{ playlist['owner']['display_name'] }} </h2>
+    <div style="margin-left:35%;">
+        <ul class="list-unstyled">
+          <h1>Songs</h1>
+              {% for i in songs %}
+                  <h3> {{ i }} </h3> 
+              {% endfor %}
+      
+        </ul>
+      </div >
+</div>
+{% endblock %}
