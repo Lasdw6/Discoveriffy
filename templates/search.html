@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block title %} Recipes searcher {% endblock %}
+{% block body %}
+
+<style>
+    /* Add a style block for custom styles */
+    body {
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+    }
+
+    #background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/static/background_food.png');
+        background-size: auto;
+        background-repeat: repeat;
+        opacity: 0.2; /* Adjust the opacity value as needed */
+        z-index: -1; /* Send it to the back */
+    }
+
+    .container-fluid {
+        z-index: 1; /* Bring navbar to the front */
+    }
+</style>
+
+<nav id="navbars" class="navbar sticky-top">
+    <div class="container-fluid" style="margin-bottom: 10px;">
+        <a class="navbar-brand" href="#">
+            <img src="static/byte_byte.png" alt="Logo0" height="120" class="d-inline-block align-text-top">
+        </a>
+    </div>
+</nav>
+
+<div id="background-container"></div> <!-- Container for background image -->
+
+<div class="row">
+    <div id="full_form" class="col-6 col-md-6">
+        <p style="padding-top: 3%" class="slide">
+            What's in your <br>fridge?<br>
+        </p>
+        <br><br>
+        <p class="desc" >
+            Enter a list of ingredients and let us do the rest<br>
+        </p>
+        <form class="form_recipes" action="/recipes">
+            <div class="input_holder mb-3" style="max-width: 50%;">
+                <input type="text" class="form-control" placeholder="What ingredients do you have" aria-label="  " aria-describedby="button-addon2" name="ingridients">       
+            </div>
+            <div class="input_button">
+                <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
+            </div>   
+        </form>
+    </div>
+    <div class="col-6 col-md-6">
+        <img src="/static/fridge_image.png" id="fridge">
+    </div>
+</div>
+
+{% endblock %}

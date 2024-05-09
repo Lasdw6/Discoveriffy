@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block title %} Error {% endblock %}
+{% block body %}
+<!-- <h2 style="text-align: center"> <a href="/" style="text-decoration: none; color:rgb(211, 195, 195)"> Recipes for you: </a></h2> -->
+<div style="margin-left:35%;">
+  <ul class="list-unstyled">
+    <h1>JuiceWRLD Songs</h1>
+        {% for i in songs %}
+            <h3> {{ i }} </h3> 
+        {% endfor %}
+
+  </ul>
+</div >
+{% endblock %}
