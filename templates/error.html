@@ -1,13 +1,12 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block title %} Error {% endblock %}
 {% block body %}
-<h2 style="text-align: center"> <a href="/" style="text-decoration: none; color:rgb(211, 195, 195)"> Recipes for you: </a></h2>
-<div style="margin-left:35%;">
-  <ul class="list-unstyled">
-    <h1>Error</h1>
-    <img src="static/404.gif">
-
-    <h3>Good food needs time to cook bro!</h3>
-  </ul>
-</div >
+<div class="container text-center text-white" style="padding-top: 10%;">
+  <h1 class="display-4 mb-4">⚠️ Error</h1>
+  <p class="lead mb-4">{{ message if message else "Something went wrong" }}</p>
+  <a href="/" class="btn btn-light btn-lg mt-3">Go Home</a>
+  {% if 'access_token' in session %}
+  <a href="/playlists" class="btn btn-outline-light btn-lg mt-3 ms-2">My Playlists</a>
+  {% endif %}
+</div>
 {% endblock %}
